@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<style>
+/* 全局 */
+*{margin:0;padding:0;box-sizing:border-box;}
+/* 顶部搜索栏 */
+.top-bar{
+    display:flex;
+    justify-content:center;
+    padding:14px;
+    gap:7px;
+}
+.top-bar input{
+    width: 300px;px;
+    padding: 10px;px;
+}
+/* 整体左右布局 flex */
+.wrap{
+    display:flex;
+}
+/* 左侧侧边导航 */
+.sidebar{
+    width:140px;
+    padding:20px 10px;
+    border-right:1px solid #ccc;
+    height: calc(100vh - 60px);
+}
+.sidebar div{
+    font-size:20px;
+    margin:30px 0;
+}
+/* 右边内容网格，多列放卡片 */
+.main{
+    flex:1;
+    padding:15px;
+    display:grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap:12px;
+}
+/* 每一个小卡片 */
+.item-card{
+    border:1px solid #ddd;
+    padding:8px;
+    border-radius:6px;
+}
+.item-card h4{
+    font-size:15px;
+}
+.item-card p{
+    font-size:12px;
+    color:#555;
+}
+.item-card {
+    width: 200px;
+    border: 1px solid #eee;
+    padding: 8px;
+    border-radius: 6px;
+}
+.item-card img{
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+</style>
+</head>
+<body>
+    <!-- 顶部搜索 -->
+    <div class="top-bar">
+        <input placeholder="搜索用户，笔记，商品">
+        <button>搜索</button>
+    </div>
+
+    <div class="wrap">
+        <!-- 左侧导航 -->
+        <div class="sidebar">
+            <div>首页</div>
+            <div>关注</div>
+            <div>商城</div>
+            <div>我的</div>
+            <button style="background:rgb(102, 109, 119);color:white;border:none;border-radius:50%;width:32px;height:32px">登录</button>
+        </div>
+
+        <!-- 右侧卡片网格 -->
+        <div class="main" id="content">
+            <!-- JS动态渲染卡片，数据数组和你之前的defaultData差不多 -->
+            <div class="item-card">
+                <img src="jisoo.jpg" alt="jisoo">
+                <h4>jisoo新专辑</h4>
+                <p>这个风格很新哇</p>
+            </div>
+            <div class="item-card">
+                <img src="L.jpg" alt="L">
+                <h4>L.萌二产物</h4>
+                <p>天使天才</p>
+            </div>
+            <div class="item-card">
+                <img src="pizhi.jpg" alt="丕植">
+                <h4>陛下临轩笑</h4>
+                <p>左右咸欢康</p>
+            </div>
+            <div class="item-card">
+                <img src="11.jpg" alt="11">
+                <h4>谢幺幺</h4>
+                <p>仙侠气aa</p>
+            </div>
+            <div class="item-card">
+                <img src="qishui.jpg" alt="眼睛">
+                <h4>你的眼睛</h4>
+                <p>一样的颜色</p>
+            </div>
+            <div class="item-card">
+                <img src="wuxie.jpg" alt="吴邪帅">
+                <h4>吴邪帅</h4>
+                <p>小狗属性</p>
+            </div>
+            <div class="item-card">
+                <img src="jian.jpg" alt="剑为君舞">
+                <h4>剑为君舞</h4>
+                <p>好有意境的名字</p>
+            </div>
+            <div class="item-card">
+                <img src="zheda.jpg" alt="绿色">
+                <h4>绿色图书馆</h4>
+                <p>浙大梦</p>
+            </div>
+            <div class="item-card">
+                <img src="qihun.jpg" alt="妹妹头">
+                <h4>地表最强妹妹头</h4>
+                <p>塔矢亮</p>
+            </div>
+            <div class="item-card">
+                <img src="tuzi.jpg" alt="呆">
+                <h4>呆</h4>
+                <p>近期最喜欢的表情</p>
+            </div>
+        </div>
+    </div>
+
+<script>
+
+]
+// 循环渲染卡片
+let box = document.getElementById("content");
+for(let i=0;i<dataList.length;i++){
+    let d = dataList[i];
+    box.innerHTML += `
+    <div class="item-card">
+        <h4>${d.title}</h4>
+        <p>${d.desc}</p>
+    </div>
+    `
+}
+</script>
+</body>
+</html>
